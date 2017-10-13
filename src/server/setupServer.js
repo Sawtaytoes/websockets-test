@@ -7,12 +7,17 @@ const helmet = require('helmet')
 const dir = require(`${global.baseDir}directories`)
 const config = require(`${dir.configs}`)
 
+const corsSettings = {
+	optionsSuccessStatus: 200,
+	origin: config.getSafeUrl(config.getServerUrl),
+}
+
 const server = express()
 
 server
 .use(compression())
 .use(helmet())
-.use(cors({ origin: config.getSafeUrl(config.getServerUrl), optionsSuccessStatus: 200 }))
+.use(cors(corsSettings))
 .use(bodyParser.json())
 .use(bodyParser.urlencoded({ extended: true }))
 
