@@ -26,9 +26,19 @@ const sendKevinExcitements = webSocketConnection => {
 	)
 }
 
+let version = 1
+
+setTimeout(() => version = 2, 5000)
+
+const messageAppVersion = webSocketConnection => {
+	webSocketConnection
+	.send(JSON.stringify({ version }))
+}
+
 module.exports = server => (
 	new WebSocket.Server({ server })
 	.on('connection', logClientConnected)
 	.on('connection', logClientMessage)
-	.on('connection', sendKevinExcitements)
+	// .on('connection', sendKevinExcitements)
+	.on('connection', messageAppVersion)
 )
