@@ -23,7 +23,7 @@
     "helmet": "^3.8.1",
     "node-fetch": "^1.7.3",
     "rxjs": "^5.4.3",
-    "ws": "^3.2.0"
+    "ws": "^3.3.1"
   },
   "devDependencies": {
     "ava": "^0.22.0",
